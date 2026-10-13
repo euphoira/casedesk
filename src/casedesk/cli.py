@@ -1,6 +1,7 @@
 import argparse
 import asyncio
 import json
+import sys
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -14,6 +15,12 @@ from casedesk.store import Store
 
 
 def main():
+    # Windows terminals and redirected CI pipes can default to legacy code pages.
+    # Keep JSON, Chinese drafts and diagnostic messages consistently UTF-8.
+    for stream in (sys.stdout, sys.stderr):
+        reconfigure = getattr(stream, "reconfigure", None)
+        if callable(reconfigure):
+            reconfigure(encoding="utf-8", errors="backslashreplace")
     load_dotenv()
     parser = argparse.ArgumentParser(
         prog="casedesk", description="Grounded support triage with local simulated approvals"

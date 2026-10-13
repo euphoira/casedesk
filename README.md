@@ -1,5 +1,7 @@
 # CaseDesk
 
+[![CI](https://github.com/euphoira/casedesk/actions/workflows/ci.yml/badge.svg)](https://github.com/euphoira/casedesk/actions/workflows/ci.yml)
+
 **让客服 Agent 的每份草稿有出处，每次操作有审批。**
 
 Versioned knowledge retrieval, grounded support drafts, and human-approved local simulations.
