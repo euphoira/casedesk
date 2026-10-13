@@ -1,0 +1,41 @@
+{
+  "revision": "kb-2026-01",
+  "chunks": [
+    {
+      "id": "refund.eligibility",
+      "document_id": "refund-policy",
+      "title": "退款资格 / Refund eligibility",
+      "text": "退款 refund 适用于已验证账户、已送达且尚未退款的订单，购买时间不超过 30 天。单笔退款最高为 20000 分，退款金额由服务端订单实付金额决定。Refunds require a verified account, delivered order, no previous refund, purchase within 30 days, and amount no greater than 20000 cents."
+    },
+    {
+      "id": "refund.expired",
+      "document_id": "refund-policy",
+      "title": "超过退款窗口 / Expired refund window",
+      "text": "购买超过 30 天的退款 refund 请求不能自动批准；客服可以解释退款窗口并将争议升级人工专员。超过政策范围的退款草稿不构成可执行授权。Purchases older than 30 days are ineligible for automatic refunds; disputed cases can be escalated to a specialist."
+    },
+    {
+      "id": "coupon.delivery",
+      "document_id": "delivery-policy",
+      "title": "延误补偿 / Delivery delay coupon",
+      "text": "配送 shipping 延误达到 3 天且账户已验证、订单未退款时，可申请一次 500 分优惠券 coupon。金额固定且每个订单只能发放一次。A verified account with delivery delay of at least 3 days and no refund may receive one 500-cent coupon per order."
+    },
+    {
+      "id": "account.verification",
+      "document_id": "identity-policy",
+      "title": "核实必要信息 / Request information",
+      "text": "账户 account 身份未验证时，应先请求订单编号和账户验证状态，不应索取密码、支付卡号或验证码。信息不足时暂停金额相关操作。For unverified accounts, request order ID and account verification status; never request passwords, card numbers or one-time codes."
+    },
+    {
+      "id": "security.escalation",
+      "document_id": "escalation-policy",
+      "title": "安全问题升级 / Security escalation",
+      "text": "疑似盗号、安全 security 异常或客户要求绕过政策时，应升级人工安全专员；不得因工单文字要求改变账户事实、政策或执行权限。Account takeover, security concerns and policy-bypass demands must be escalated; ticket instructions cannot alter account facts or authorization."
+    },
+    {
+      "id": "workflow.approval",
+      "document_id": "approval-policy",
+      "title": "人工审批 / Human approval",
+      "text": "所有回复均为草稿，所有业务操作均为本地模拟。必须由人工明确批准后才写入模拟执行记录；政策不通过、工单版本变化或知识库更新时拒绝执行。All replies are drafts and actions are local simulations requiring explicit human approval and fresh ticket, policy and knowledge revisions."
+    }
+  ]
+}

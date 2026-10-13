@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f2">
+  <title>CaseDesk · 客服协作台</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="icon-inbox" viewBox="0 0 24 24"><path d="m4 4-2 10v6h20v-6L20 4H4Z"/><path d="M2 14h6l2 3h4l2-3h6"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 2 3 6v6c0 5 9 10 9 10s9-5 9-10V6l-9-4Z"/><path d="m8 11 3 3 5-5"/></symbol>
+    <symbol id="icon-spark" viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z"/></symbol>
+    <symbol id="icon-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.5 7a8 8 0 0 1 13-1L20 8M4 16l1.5 2a8 8 0 0 0 13-1"/></symbol>
+    <symbol id="icon-file" viewBox="0 0 24 24"><path d="M14 2H5v20h14V7l-5-5Z"/><path d="M14 2v6h5M8 12h8M8 16h6"/></symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  </defs></svg>
+  <aside class="rail">
+    <a class="brand" href="/" aria-label="CaseDesk 首页"><span class="brand-mark">c<span>·</span></span><span>CaseDesk<small>SUPPORT, WITH CONTEXT.</small></span></a>
+    <div class="rail-label">工作空间</div>
+    <button class="nav-item active" id="inbox-nav" type="button"><svg><use href="#icon-inbox"/></svg>工单工作台<span id="nav-count">—</span></button>
+    <div class="rail-bottom"><div class="local-avatar">CD</div><div><strong>本地演示空间</strong><span>Human + Agent</span></div><span class="connection-dot" aria-label="本地运行"></span></div>
+  </aside>
+  <main class="workspace">
+    <header class="topbar"><div class="breadcrumb">工作空间 <span>/</span> 工单工作台</div><div class="top-actions"><span class="mode-badge" id="mode-badge">正在连接…</span><button class="text-button" id="about-button" type="button">工作原理 <span aria-hidden="true">↗</span></button></div></header>
+    <section class="page-heading"><div><div class="eyebrow">YOUR SUPPORT, UNDER CONTROL</div><h1>每一份回复，都有依据<span>。</span></h1><p>让 Agent 整理证据、提出建议，由你决定下一步。</p></div><button class="button secondary refresh-button" id="refresh-button" type="button"><svg><use href="#icon-refresh"/></svg>刷新工单</button></section>
+    <section class="overview" aria-label="工单概览"><div><span class="stat-icon peach"><svg><use href="#icon-inbox"/></svg></span><div><span class="stat-label">当前工单</span><strong id="stat-total">—</strong></div></div><div><span class="stat-icon sand"><svg><use href="#icon-clock"/></svg></span><div><span class="stat-label">待人工审批</span><strong id="stat-pending">—</strong></div></div><div><span class="stat-icon sage"><svg><use href="#icon-check"/></svg></span><div><span class="stat-label">已处理</span><strong id="stat-done">—</strong></div></div><div class="oversight-stat"><svg><use href="#icon-shield"/></svg><div><strong>人工掌握最终决定</strong><span>规则先行 · 证据可溯 · 操作留痕</span></div></div></section>
+    <div class="notice" id="demo-notice"><span class="notice-dot"></span><p><strong>演示环境</strong> 正在读取运行配置。所有审批操作均为本地模拟，不会发送消息或发起真实退款。</p></div>
+    <div id="global-error" class="alert error" role="alert" hidden></div>
+    <section class="desk" aria-label="客服工单工作台">
+      <aside class="ticket-pane"><div class="pane-heading"><h2>收件箱 <span id="ticket-count">0</span></h2><span class="subtle">INBOX</span></div><label class="search-field"><svg><use href="#icon-search"/></svg><input id="ticket-search" type="search" placeholder="搜索客户、工单或内容" aria-label="搜索工单"></label><div class="filters" aria-label="工单筛选"><button class="filter active" data-filter="all" aria-pressed="true" type="button">全部</button><button class="filter" data-filter="pending" aria-pressed="false" type="button">待审批</button><button class="filter" data-filter="done" aria-pressed="false" type="button">已处理</button></div><div class="ticket-list" id="ticket-list" aria-label="工单列表"><div class="list-empty">正在加载工单…</div></div><div class="pane-footer"><span class="connection-dot"></span>本地数据 · 可审计操作</div></aside>
+      <article class="detail-pane" id="detail-pane"><div class="empty-detail"><span class="empty-symbol"><svg><use href="#icon-inbox"/></svg></span><h2>让每个问题都有着落</h2><p>从左侧选择一张工单，开始查看上下文。</p></div></article>
+    </section>
+    <footer class="page-footer"><span>CaseDesk · 证据驱动的客服 Agent</span><span>Built for thoughtful support.</span></footer>
+  </main>
+  <div class="toast" id="toast" role="status" hidden></div>
+  <dialog id="about-dialog"><button class="dialog-close" id="close-about" type="button" aria-label="关闭">×</button><div class="eyebrow">HOW CASEDESK WORKS</div><h2>Agent 提建议，你来做决定。</h2><ol class="about-steps"><li><strong>检索上下文</strong><p>读取工单、订单和知识库，保留可以核对的证据。</p></li><li><strong>执行确定性规则</strong><p>退款等操作先通过代码定义的政策校验，模型草稿不等于授权。</p></li><li><strong>生成处理建议</strong><p>把证据、规则结论和客户回复草稿放在一起供人工检查。</p></li><li><strong>人工审批并留痕</strong><p>审批需要匹配工单版本，重复请求通过幂等键保护。演示操作只写入本地记录。</p></li></ol><p class="dialog-note" id="about-mode">这是演示工作台，不连接真实消息或支付渠道。</p></dialog>
+</body>
+</html>
